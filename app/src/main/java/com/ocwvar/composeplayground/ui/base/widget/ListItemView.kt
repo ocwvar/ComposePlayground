@@ -7,6 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
@@ -14,14 +15,15 @@ import androidx.compose.ui.unit.TextUnitType
 
 @ExperimentalUnitApi
 @Composable
-fun ListItemView(itemText: String, onItemClick: () -> Unit) {
+fun ListItemView(itemText: String, enabled: Boolean = true, onItemClick: () -> Unit) {
     Text(
         modifier = Modifier
             .fillMaxWidth(fraction = 1.0f)
-            .clickable(enabled = true, onClick = onItemClick)
+            .clickable(enabled = enabled, onClick = onItemClick)
             .padding(Dp(12f)),
         text = itemText,
-        fontSize = TextUnit(16f, TextUnitType.Sp)
+        fontSize = TextUnit(16f, TextUnitType.Sp),
+        style = TextStyle(color = if (enabled) Color.Black else Color.LightGray)
     )
 }
 

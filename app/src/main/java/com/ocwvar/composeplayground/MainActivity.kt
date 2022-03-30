@@ -13,10 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ocwvar.composeplayground.ui.base.InitGlobalValues
 import com.ocwvar.composeplayground.ui.base.PageType
-import com.ocwvar.composeplayground.ui.pages.DialogTestPage
-import com.ocwvar.composeplayground.ui.pages.DynamicListPage
-import com.ocwvar.composeplayground.ui.pages.MvvmPage
-import com.ocwvar.composeplayground.ui.pages.PlaygroundPage
+import com.ocwvar.composeplayground.ui.pages.*
 import com.ocwvar.composeplayground.ui.theme.*
 
 @ExperimentalAnimationApi
@@ -56,5 +53,6 @@ fun Content() {
         this.composable(PageType.DynamicList.name) { DynamicListPage(navController = navigationController) }
         this.composable(PageType.DialogTesting.name) { DialogTestPage(navController = navigationController) }
         this.composable(PageType.MVVM.name) { MvvmPage(navController = navigationController) }
+        this.composable(PageType.Blurry.name) { BlurryPage(navController = navigationController) }
     }
 }
