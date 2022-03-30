@@ -1,12 +1,13 @@
 package com.ocwvar.composeplayground.ui.theme
 
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
+import com.ocwvar.composeplayground.ui.base.appDayNightMode
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -21,13 +22,22 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun CurrentTheme(isDarkMode: Boolean = isSystemInDarkTheme()): Colors {
+fun isDarkMode(): Boolean {
+    if (appDayNightMode == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
+        return isSystemInDarkTheme()
+    }
+
+    return appDayNightMode == AppCompatDelegate.MODE_NIGHT_YES
+}
+
+@Composable
+fun currentTheme(isDarkMode: Boolean = isDarkMode()): Colors {
     return if (isDarkMode) DarkColorPalette else LightColorPalette
 }
 
 @Composable
 fun WithTheme(
-    isDarkMode: Boolean = isSystemInDarkTheme(),
+    isDarkMode: Boolean = isDarkMode(),
     content: @Composable () -> Unit
 ) {
     MaterialTheme(
@@ -37,3 +47,4 @@ fun WithTheme(
         content = content
     )
 }
+
