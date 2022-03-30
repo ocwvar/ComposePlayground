@@ -1,6 +1,7 @@
 package com.ocwvar.composeplayground.ui.pages
 
 import android.app.Application
+import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -44,7 +45,8 @@ fun PlaygroundView(navController: NavHostController) {
     val pages = listOf(
         FunctionModel(PageType.DynamicList, "Dynamic list testing"),
         FunctionModel(PageType.DialogTesting, "Dialog test"),
-        FunctionModel(PageType.MVVM, "MVVM Network request")
+        FunctionModel(PageType.MVVM, "MVVM Network request"),
+        FunctionModel(PageType.Blurry, "Blurry")
     )
 
     Column(
@@ -58,8 +60,21 @@ fun PlaygroundView(navController: NavHostController) {
         // content list
         LazyColumn {
             this.items(pages) { page ->
-                ListItemView(itemText = page.pageTitle) {
-                    navController.navigate(page.pageType.name)
+                when(page.pageType) {
+                    PageType.Blurry -> {
+                        ListItemView(
+                            itemText = page.pageTitle,
+                            enabled = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+                        ) {
+                            navController.navigate(page.pageType.name)
+                        }
+                    }
+
+                    else -> {
+                        ListItemView(itemText = page.pageTitle) {
+                            navController.navigate(page.pageType.name)
+                        }
+                    }
                 }
             }
         }

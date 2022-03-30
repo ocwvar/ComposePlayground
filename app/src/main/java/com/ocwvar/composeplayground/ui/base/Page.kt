@@ -53,5 +53,6 @@ enum class PageType {
     Main,
     DynamicList,
     DialogTesting,
-    MVVM
+    MVVM,
+    Blurry
 }

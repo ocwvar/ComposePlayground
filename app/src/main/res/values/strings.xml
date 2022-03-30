@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">ComposePlayground</string>
+    <string name="long_text">We all face this problem,
+“How to prevent user from doing multiple clicks on a button??”.
+We all end up with multiple instance from same screen were shown if user keep clicking on the button very quickly.
+Even if you tried to disable the button directly after onClick(), still there is a probability to have multiple click happened.
+I searched the community and found amazing solution like creating a custom click listener that will preserve the last click time and prevent clicking for a specific period
+But — as a big fan of Kotlin — I was thinking to have something to use very smoothly using the power of lambdas and closures.
+So I came up with this implementation, hope to help you What is a button in android?
+In Android, Button represents a push button. A Push buttons can be clicked, or pressed by the user to perform an action. There are different types of buttons used in android such as CompoundButton, ToggleButton, RadioButton. Button is a subclass of TextView class and compound button is the subclass of Button class.
+
+How do you double click on a phone?
+A single tap acts as a single mouse click. To switch the behavior of a single click between left click and right click, tap the Mouse button. A double tap acts as a double click. A double tap and hold allows you to grab and then drag.
+
+How to avoid multiple button click at the same time in Android?
+If you have to do the same between objects in a RecyclerView, you can just add android:splitMotionEvents=”false” to your View inside the xml file. Just like this:
+
+How to handle a button click in Android?
+Android Onclick Event: How To Handle Button Clicks Event Handler Event Listener Description onClick () OnClickListener () The onclicklistener w onLongClick () OnLongClickListener () As precepted from onFocusChange () OnFocusChangeListener () As its name des
+
+How to handle multiple button click Stack Overflow?
+(imho) 4-th approach used when multiple buttons have same handler, and you can declare one method in activity class and assign this method to multiple buttons in xml layout, also you can create one method for one button, but in this case I prefer to declare handlers inside activity class.
+</string>
 </resources>
